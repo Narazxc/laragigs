@@ -23,8 +23,18 @@ Route::get('/', function () {
 });
 
 // Single listing
-Route::get('/listings/{listing}', function($id){
-    return view('listing', [
-        'listing' => Listing::find($id)
+Route::get('/listings/{listing}', function(Listing $listing){
+
+
+
+
+    // return view('listing', [
+    //     'listing' => Listing::findOrFail($id) // findOrFail method: If no $id match render 404 page, no need for if/else check
+    // ]);
+
+        return view('listing', [
+        'listing' => $listing
     ]);
+
+
 });
